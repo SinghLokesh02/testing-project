@@ -1,6 +1,6 @@
 import React, { useEffect,useState} from 'react'
 import axios from 'axios'
-import { addToCart } from '../redux/cartSlice';
+import { addItem } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 
 
@@ -13,7 +13,7 @@ const Body = () => {
     const handleAddcart = async (card) => {
         console.log(card);
         
-        dispatch(addToCart(card));
+        dispatch(addItem(card));
         alert("Item added to cart!");
     }
 
