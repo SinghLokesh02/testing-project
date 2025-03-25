@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 const connectDB = require("./config/db")
 
@@ -7,6 +8,7 @@ app.use(express.json()) // for parsing JSON request bodies
 
 // Connect to MongoDB
 connectDB()
+app.use(cors())
 
 const cardRouter = require('./routes/card')
 const cartRouter = require('./routes/cart')
