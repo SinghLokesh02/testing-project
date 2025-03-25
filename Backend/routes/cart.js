@@ -6,6 +6,16 @@ router.get('/', (req, res) => {
     res.send('Hello World from cart!')
 })
 
+router.get("/getall", async(req, res) => {
+    try{
+        const cart = await cartModel.find();
+        res.send(cart);
+    }
+    catch(err){
+        res.status(500).send({message: err.message});
+        console.error(err);
+    }
+})
 router.post("/create", async(req, res) => {
     const data = req.body;
     try{
