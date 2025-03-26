@@ -2,6 +2,7 @@ import React, { useEffect,useState} from 'react'
 import axios from 'axios'
 import { addItem } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 
 const Body = () => {
@@ -11,10 +12,16 @@ const Body = () => {
     },[])
 
     const handleAddcart = async (card) => {
-        console.log(card);
-        
         dispatch(addItem(card));
-        alert("Item added to cart!");
+        toast.success('Item added to cart successfully!', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "colored",
+        });
     }
 
 
